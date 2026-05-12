@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "CityReview": {
+      "title": "City Review",
+      "description": "User review and rating for a city or specific location within a city",
+      "type": "object",
+      "properties": {
+        "cityId": { "type": "string", "description": "The name or ID of the city" },
+        "userId": { "type": "string", "description": "UID of the user who wrote the review" },
+        "userName": { "type": "string", "description": "Name of the user" },
+        "rating": { "type": "integer", "description": "Rating from 1 to 5" },
+        "comment": { "type": "string", "description": "User's feedback" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the review was created" }
+      },
+      "required": ["cityId", "userId", "userName", "rating", "comment", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/reviews/{reviewId}": {
+      "schema": "CityReview",
+      "description": "Collection of user reviews for cities"
+    }
+  }
+}
